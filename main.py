@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 def main():
     print("Starting asteroids!")
@@ -12,6 +13,8 @@ def main():
 
     dt = 0
 
+    player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     while True:
@@ -19,6 +22,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(screen, (0,0,0))
+        player.draw(screen)
         pygame.display.flip()
         
         #Framerate limiter
