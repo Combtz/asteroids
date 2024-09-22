@@ -48,6 +48,12 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.check_collision(shot):
+                    shot.kill()
+                    asteroid.split()
+
         pygame.Surface.fill(screen, (0,0,0))
         
         for thing in drawable:
